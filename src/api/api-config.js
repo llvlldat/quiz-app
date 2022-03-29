@@ -1,13 +1,13 @@
 import axios from "axios";
 import refreshToken from "./api";
 
-// axios.interceptors.request.use((req) => {
-//     req.headers = {
-//         ...req.headers,
-//         Authorization: `Bearer ${localStorage.getItem("token")}`,
-//     };
-//     return req;
-// });
+axios.interceptors.request.use((req) => {
+    req.headers = {
+        ...req.headers,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+    };
+    return req;
+});
 
 axios.interceptors.response.use((res) => {
     if (res.status === 401) {

@@ -33,4 +33,17 @@ export function refreshToken(refreshToken) {
     });
 }
 
+export function logout(refreshToken) {
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    return axios({
+        method: "POST",
+        url: "https://fwa-ec-quiz.herokuapp.com/v1/auth/logout",
+        data: {
+            refreshToken: refreshToken,
+        },
+    });
+}
+
 export default {};

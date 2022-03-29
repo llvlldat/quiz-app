@@ -8,21 +8,26 @@ import { useContext } from "react";
 
 const Login = () => {
     const context = useContext(userContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const onFinish = (values) => {
         login(values.username, values.password)
             .then((res) => {
-                context.setUser(res.data);
+                context.setUser(res.data.user);
+                console.log(res.data.user)
+                localStorage.setItem("user", JSON.stringify(res.data.user));
                 localStorage.setItem("token", res.data.tokens.access.token);
-                localStorage.setItem("refreshToken", res.data.tokens.refresh.token)
-                navigate('/dashboard')
+                localStorage.setItem(
+                    "refreshToken",
+                    res.data.tokens.refresh.token
+                );
+                navigate("/dashboard");
             })
             .catch((err) => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
-                    // text: err.response.data.message,
+                    text: err.response.data.message,
                 });
             });
     };
