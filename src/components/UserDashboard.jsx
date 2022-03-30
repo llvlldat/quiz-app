@@ -1,10 +1,9 @@
 import { Typography, Radio, Space, Divider, Button, InputNumber } from "antd";
-import { useContext, useEffect, useState, useRef } from "react";
-import { userContext } from "../context/Context";
+import { useEffect, useState, useRef } from "react";
 import { getQuestionByPage, submitAnswers } from "../api/api";
+import Swal from "sweetalert2"
 
 function UserDashboard() {
-    const context = useContext(userContext);
     const answers = useRef([]);
     const [numberOfQuestions, setNumberOfQuestions] = useState(10);
     const [questions, setQuestions] = useState([]);
@@ -24,8 +23,6 @@ function UserDashboard() {
             .catch((err) => console.log(err));
     }, [numberOfQuestions]);
 
-    console.log(answers.current);
-
     const _onClickNext = () => {
         setIndex(index + 1);
     };
@@ -36,12 +33,24 @@ function UserDashboard() {
 
     const _onClickSubmit = () => {
         submitAnswers(answers.current)
-            .then((res) => console.log(res.data))
+            .then((res) => {
+                console.log(res.data)
+                const score = res.data.reduce((prev, current) => {
+                    return current.result ? prev + 1 : prev
+                } , 0)
+                Swal.fire({
+                    title: `Your score is ${score}/${res.data.length}`,
+                });
+            })
             .catch((err) => console.log(err));
     };
 
     const _onChangeRadio = (e) => {
         answers.current[index].correctanswer = e.target.value;
+    };
+
+    const _onChangeInputNumber = (value) => {
+        setNumberOfQuestions(value);
     };
 
     return (
@@ -50,8 +59,17 @@ function UserDashboard() {
                 margin: "150px auto",
                 width: "800px",
             }}
-        >   
-            {/* <InputNumber min={1} max={}></InputNumber> */}
+        >
+            <Space align="center" style={{ marginBottom: "16px" }}>
+                <Typography.Title level={5} style={{ margin: 0 }}>
+                    Total question is
+                </Typography.Title>
+                <InputNumber
+                    min={1}
+                    defaultValue={numberOfQuestions}
+                    onChange={_onChangeInputNumber}
+                />
+            </Space>
             <Space
                 direction="vertical"
                 style={{
