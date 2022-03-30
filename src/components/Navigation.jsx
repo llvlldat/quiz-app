@@ -31,6 +31,7 @@ function Navigation() {
                 width: "100%",
                 height: "50px",
                 borderBottom: "1px solid #c1c1c1",
+                top: 0
             }}
             align="middle"
             gutter={8}

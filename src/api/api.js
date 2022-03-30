@@ -46,4 +46,19 @@ export function logout(refreshToken) {
     });
 }
 
+export function getQuestionByPage(limit) {
+    return axios({
+        method: "GET",
+        url: `https://fwa-ec-quiz.herokuapp.com/v1/questions?page=1&limit=${limit}`,
+    });
+}
+
+export function submitAnswers(answersArray) {
+    return axios({
+        method: "POST",
+        url: "https://fwa-ec-quiz.herokuapp.com/v1/questions/submit",
+        data: answersArray,
+    });
+}
+
 export default {};
