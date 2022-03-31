@@ -61,4 +61,41 @@ export function submitAnswers(answersArray) {
     });
 }
 
+export function getQuestionByAdmin() {
+    return axios({
+        method: "GET",
+        url: "https://fwa-ec-quiz.herokuapp.com/v1/questions/edit",
+    });
+}
+
+export function getQuestionById(id) {
+    return axios({
+        method: "GET",
+        url: `https://fwa-ec-quiz.herokuapp.com/v1/questions/edit/${id}`,
+    });
+}
+
+export function updateQuestionById(id, question) {
+    return axios({
+        method: "PATCH",
+        url: `https://fwa-ec-quiz.herokuapp.com/v1/questions/edit/${id}`,
+        data: question,
+    });
+}
+
+export function deleteQuestionById(id) {
+    return axios({
+        method: "DELETE",
+        url: `https://fwa-ec-quiz.herokuapp.com/v1/questions/edit/${id}`,
+    });
+}
+
+export function addNewQuestion(question) {
+    return axios({
+        method: "POST",
+        url: "https://fwa-ec-quiz.herokuapp.com/v1/questions/edit",
+        data: question,
+    });
+}
+
 export default {};

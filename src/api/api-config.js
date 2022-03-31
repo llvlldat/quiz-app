@@ -1,5 +1,5 @@
 import axios from "axios";
-import refreshToken from "./api";
+import { refreshToken } from "./api";
 
 axios.interceptors.request.use((req) => {
     req.headers = {

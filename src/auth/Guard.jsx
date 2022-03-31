@@ -5,7 +5,6 @@ import Login from "../components/Login";
 
 function Guard() {
     let location = useLocation();
-    console.log(location)
     const context = useContext(userContext);
     return context.user.role ? (
         location.pathname === "/login" ? (
