@@ -87,7 +87,8 @@ function AdminDashboard() {
     }
 
     const getDataFromBE = async () => {
-        return getQuestionByAdmin()
+        const res = await getQuestionByAdmin(1)
+        return getQuestionByAdmin(res.data.totalResults)
             .then((res) => {
                 setData(
                     res.data.results.map((result) => ({
@@ -112,7 +113,7 @@ function AdminDashboard() {
         >
             <Space direction="vertical">
                 <Button type="primary" onClick={_onClickAddQuestion}>Add new question</Button>
-                <Table columns={columns} dataSource={data} />
+                <Table columns={columns} dataSource={data} style={{width: '1000px'}}/>
             </Space>
             <Modal
                 title={`Detail of question: `}

@@ -61,10 +61,10 @@ export function submitAnswers(answersArray) {
     });
 }
 
-export function getQuestionByAdmin() {
+export function getQuestionByAdmin(limit) {
     return axios({
         method: "GET",
-        url: "https://fwa-ec-quiz.herokuapp.com/v1/questions/edit",
+        url: `https://fwa-ec-quiz.herokuapp.com/v1/questions/edit?limit=${limit}`,
     });
 }
 
