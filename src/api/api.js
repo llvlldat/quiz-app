@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const instanceAxios = axios.create();
+
 export function register(username, password, email) {
     return axios({
         method: "POST",
@@ -24,7 +26,7 @@ export function login(username, password) {
 }
 
 export function refreshToken(refreshToken) {
-    return axios({
+    return instanceAxios({
         method: "POST",
         url: "https://fwa-ec-quiz.herokuapp.com/v1/auth/refresh-tokens",
         data: {
@@ -34,9 +36,7 @@ export function refreshToken(refreshToken) {
 }
 
 export function logout(refreshToken) {
-    localStorage.removeItem("refreshToken");
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    localStorage.clear();
     return axios({
         method: "POST",
         url: "https://fwa-ec-quiz.herokuapp.com/v1/auth/logout",

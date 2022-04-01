@@ -14,9 +14,10 @@ const Login = () => {
         login(values.username, values.password)
             .then((res) => {
                 context.setUser(res.data.user);
-                console.log(res.data.user)
+                console.log(res.data.user);
                 localStorage.setItem("user", JSON.stringify(res.data.user));
                 localStorage.setItem("token", res.data.tokens.access.token);
+                localStorage.setItem("expires", res.data.tokens.access.expires);
                 localStorage.setItem(
                     "refreshToken",
                     res.data.tokens.refresh.token

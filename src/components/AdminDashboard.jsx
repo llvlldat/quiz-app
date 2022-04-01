@@ -89,7 +89,6 @@ function AdminDashboard() {
     const getDataFromBE = async () => {
         return getQuestionByAdmin()
             .then((res) => {
-                console.log("hi");
                 setData(
                     res.data.results.map((result) => ({
                         ...result,
