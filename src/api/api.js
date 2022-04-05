@@ -3,7 +3,7 @@ import axios from "axios";
 const instanceAxios = axios.create();
 
 export function register(username, password, email) {
-    return axios({
+    return instanceAxios({
         method: "POST",
         url: "https://fwa-ec-quiz.herokuapp.com/v1/auth/register",
         data: {
@@ -15,7 +15,7 @@ export function register(username, password, email) {
 }
 
 export function login(username, password) {
-    return axios({
+    return instanceAxios({
         method: "POST",
         url: "https://fwa-ec-quiz.herokuapp.com/v1/auth/login",
         data: {
@@ -37,7 +37,7 @@ export function refreshToken(refreshToken) {
 
 export function logout(refreshToken) {
     localStorage.clear();
-    return axios({
+    return instanceAxios({
         method: "POST",
         url: "https://fwa-ec-quiz.herokuapp.com/v1/auth/logout",
         data: {
@@ -97,5 +97,3 @@ export function addNewQuestion(question) {
         data: question,
     });
 }
-
-export default {};

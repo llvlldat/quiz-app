@@ -1,9 +1,9 @@
 import { Form, Input, Button, Row, Col, Typography } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../api/api";
+import { login } from "../../api/api";
 import Swal from "sweetalert2";
-import { userContext } from "../context/Context";
+import { userContext } from "../../context/Context";
 import { useContext } from "react";
 
 const Login = () => {

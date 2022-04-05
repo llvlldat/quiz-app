@@ -1,10 +1,10 @@
-import logo from "../logo/logo.png";
-import { userContext } from "../context/Context";
+import logo from "../../logo/logo.png";
+import { userContext } from "../../context/Context";
 import { useContext } from "react";
 import { Col, Row, Space, Typography, Dropdown, Menu } from "antd";
 import { Link } from "react-router-dom";
 import { DownOutlined } from "@ant-design/icons";
-import { logout } from "../api/api";
+import { logout } from "../../api/api";
 
 function Navigation() {
     const context = useContext(userContext);
@@ -53,6 +53,7 @@ function Navigation() {
                         <img
                             src={context.user.avatar}
                             style={{ width: "30px" }}
+                            alt="anh"
                         />
                         <Dropdown overlay={menu}>
                             <DownOutlined />

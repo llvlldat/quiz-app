@@ -1,6 +1,6 @@
 import { Typography, Radio, Space, Divider, Button, InputNumber } from "antd";
 import { useEffect, useState, useRef } from "react";
-import { getQuestionByPage, submitAnswers } from "../api/api";
+import { getQuestionByPage, submitAnswers } from "../../api/api";
 import Swal from "sweetalert2"
 
 function UserDashboard() {

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { userContext } from "../context/Context";
 import { Outlet, useLocation, Navigate } from "react-router-dom";
-import Login from "../components/Login";
+import Login from "../components/Login/Login";
 
 function Guard() {
     let location = useLocation();

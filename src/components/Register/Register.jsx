@@ -1,7 +1,7 @@
 import { Form, Input, Button, Row, Col, Typography } from "antd";
 import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
-import { register } from "../api/api";
+import { register } from "../../api/api";
 import Swal from "sweetalert2";
 
 function Register() {

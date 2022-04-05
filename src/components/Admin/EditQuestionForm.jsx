@@ -1,6 +1,6 @@
 import { Form, Input, Button } from "antd";
 import { useImperativeHandle, useRef, forwardRef } from "react";
-import { updateQuestionById, addNewQuestion } from "../api/api";
+import { updateQuestionById, addNewQuestion } from "../../api/api";
 
 function EditQuestionForm({ questionDetail, getDataFromBE, status }, ref) {
     const buttonRef = useRef();

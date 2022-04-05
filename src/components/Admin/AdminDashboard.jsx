@@ -1,6 +1,6 @@
 import { Table, Space, Button, Modal } from "antd";
 import { useEffect, useState, useRef } from "react";
-import { getQuestionByAdmin, deleteQuestionById } from "../api/api";
+import { getQuestionByAdmin, deleteQuestionById } from "../../api/api";
 import EditQuestionForm from "./EditQuestionForm";
 import Swal from "sweetalert2";
 

@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 import Guard from "./auth/Guard";
 import { userContext } from "./context/Context";
 import { useContext } from "react";
-import AdminDashboard from "./components/AdminDashboard";
-import UserDashboard from "./components/UserDashboard";
-import Navigation from "./components/Navigation";
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import UserDashboard from "./components/User/UserDashboard";
+import Navigation from "./components/Navbar/Navigation";
 
 function App() {
     const context = useContext(userContext);
